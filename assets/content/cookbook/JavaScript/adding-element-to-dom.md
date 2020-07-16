@@ -8,6 +8,7 @@ This is an example to add a paragraph element to the HTML page when the DOM is r
 
 ## Structure of this example
 
+In VS Code, install "Haxe Extension Pack", click F1, enter "Haxe Initialize" or
 Create a folder named **example** and create folders **bin** and **src**.
 
 See example below:
@@ -54,7 +55,11 @@ class Main {
 
 This example is does pretty much same as the one above, but uses jQuery.
 
-Remember that jQuery in Haxe is simply an [extern](https://haxe.org/manual/lf-externs.html) (type definition). You need to add a script-tag that links to jQuery in the HTML file. 
+Remember that jQuery in Haxe is simply an [extern](https://haxe.org/manual/lf-externs.html) (type definition). 
+You can add it to your project using:
+`lix install haxelib:jQueryExtern`
+
+You need to add a script-tag that links to jQuery in the HTML file. 
 
 ```haxe
 import js.jquery.JQuery;
@@ -85,6 +90,7 @@ These arguments can be placed in a text file which has the file-extension _.hxml
 **build.hxml**
 ```hxml
 -cp src
+-lib jQueryExtern 
 -main Main
 -js bin/example.js
 -dce full
@@ -120,5 +126,7 @@ You can download jQuery from <https://jquery.com/> or use CDN as illustrated in 
 
 ## Running the example
 
-Open the index.html in your favorite browser. It should display the text "DOM ready". Using the browser devtools (F12) you can inspect the DOM which shows the text is created inside a paragraph `<p>` element.
+Open the index.html in your favorite browser, or install http-server (`npm i http-server`) and run it: `http-server -o ./bin`. 
+
+It should display the text "DOM ready". Using the browser devtools (F12) you can inspect the DOM which shows the text is created inside a paragraph `<p>` element.
 
